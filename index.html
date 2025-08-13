@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soirée Masquée 2025</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Style pour la grille Contacts */
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .contact-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .contact-card:hover {
+      transform: scale(1.03);
+    }
+    .contact-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+    .contact-name {
+      padding: 8px;
+      font-weight: bold;
+      background: #450adc;
+    }
+
+    /* Style pour l’Accueil */
+    #accueil {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    #accueil h2 {
+      font-size: 2rem;
+      color: #ffffff;
+      margin-bottom: 5px;
+    }
+    #accueil h3 {
+      font-style: italic;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+    #accueil .highlight {
+      background: #000000;
+      padding: 10px;
+      border-left: 4px solid #b30059;
+      margin: 15px 0;
+      display: inline-block;
+    }
+    #accueil ul {
+      list-style: none;
+      padding: 0;
+    }
+    #accueil ul li {
+      background: #000000;
+      margin: 5px 0;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+    #accueil b {
+      color: #b30059;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Soirée Masquée</h1> 
+
+    <nav>
+      <button class="tab-btn active" data-tab="accueil">Accueil</button>
+      <button class="tab-btn" data-tab="presentation">Présentation</button>
+      <button class="tab-btn" data-tab="contacts">Contacts</button>
+    </nav>
+  </header>
+
+  <!-- Accueil -->
+  <section id="accueil" class="active">
+    <h2>Omni_Flow</h2> 
+    <h3><strong>Créateurs d’émotions, Maîtres de l’ambiance, Architectes de vos plus beaux événements.</strong></h3>
+
+    <p>Chez <strong>Omniflow</strong>, nous ne faisons pas que planifier des événements, 
+      <span class="highlight">nous créons des expériences inoubliables.</span>
+    </p>
+
+    <p>Site officiel de vente des billets pour <strong>la Soirée Masquée</strong>.</p>
+
+    <p><strong>La soirée Masquée</strong> est l’événement le plus attendu de l’année :  
+      masques, lumières, musiques, surprises…  
+      <span class="highlight">Une soirée inoubliable t’attend !</span>
+    </p>
+
+    <b>Infos essentielles</b>
+    <ul>
+      <li>Date : Jeudi 21 Août 2025</li>
+      <li> Heure : 15h30 jusqu'à XTIME</li>
+      <li> Lieu : Salle de fête Saint-Jean</li>
+      <li> Dress code : Tenue de ville</li>
+    </ul>
+
+    <b>En réservant votre billet sur ce site officiel, vous bénéficiez :</b>
+    <ul>
+      <li> Billet sécurisé avec code unique</li>
+      <li> Accès garanti</li>
+      <li> Masque offert</li>
+    </ul>
+
+    <p><b>⚠ Attention</b> : Places limitées — Réservez dès maintenant pour garantir votre accès.</p>
+  </section>
+
+  <!-- Présentation -->
+  <section id="presentation">
+    <h2>Présentation en images</h2>
+    <div class="gallery">
+      <img src="photo/photo_2025-08-13_16-18-40.jpg" alt="Billet">
+      <img src="photo/photo_2025-08-13_16-19-12.jpg" alt="Disponible">
+      <img src="photo/photo_2025-08-13_16-18-28.jpg" alt="Affiche">
+      <img src="photo/photo_2025-08-13_16-18-55.jpg" alt="">
+      <img src="photo/photo_2025-08-13_16-18-50.jpg" alt="">
+      <img src="photo/photo_2025-08-13_16-18-48.jpg" alt="">
+      <img src="photo/photo_2025-08-13_16-18-32.jpg" alt="">
+      <img src="photo/photo_2025-08-13_16-18-59.jpg" alt="billets">
+      <video controls src="photo/Salle1.MP4"></video>
+      <video controls src="photo/Salle2.MP4"></video>
+      <video controls src="photo/Fille.MOV"></video>
+      <video controls src="photo/rk.MOV"></video>
+      <video controls src="photo/dj.MP4"></video>
+      <video controls src="photo/salle4.MP4"></video>
+      <video controls src="photo/salle5.MP4"></video>
+      <video controls src="photo/salle6.MP4"></video>
+      <video controls src="photo/salle7.MP4"></video>
+      <video controls src="photo/salle8.MP4"></video>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section id="contacts">
+    <h2>Contact l'un des Admins pour commander</h2>
+    <div class="contacts-grid">
+      <!-- 25 cartes -->
+      <div class="contact-card">
+  <a href="https://wa.me/243898970105" target="_blank" rel="noopener">
+    <img src="photo/Zek.png" alt="Zek">
+    <div class="contact-name">Zek</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243972330853" target="_blank" rel="noopener">
+    <img src="photo/Kerly.png" alt="Kerly">
+    <div class="contact-name">Kerly</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243991273145" target="_blank" rel="noopener">
+    <img src="photo/Mathilde.png" alt="Mathilde">
+    <div class="contact-name">Mathilde</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243831300605" target="_blank" rel="noopener">
+    <img src="photo/Egrezia.png" alt="Egrezia">
+    <div class="contact-name">Egrezia</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243846879808" target="_blank" rel="noopener">
+    <img src="photo/Charmant.png" alt="Charmant">
+    <div class="contact-name">Charmant</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243842011373" target="_blank" rel="noopener">
+    <img src="photo/IsaacNgoy.png" alt="Isaac Ngoy">
+    <div class="contact-name">Isaac Ngoy</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243991085499" target="_blank" rel="noopener">
+    <img src="photo/Hugeutte.png" alt="Hugeutte">
+    <div class="contact-name">Hugeutte</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243898908697" target="_blank" rel="noopener">
+    <img src="photo/Nold.png" alt="Nold">
+    <div class="contact-name">Nold</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243997709179" target="_blank" rel="noopener">
+    <img src="photo/Isaac.png" alt="Isaac">
+    <div class="contact-name">Isaac</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243895979493" target="_blank" rel="noopener">
+    <img src="photo/waterloo.png" alt="Waterloo">
+    <div class="contact-name">Waterloo</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243999782183" target="_blank" rel="noopener">
+    <img src="photo/Mpia.png" alt="Jorvin">
+    <div class="contact-name">Jorvin</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243983981063" target="_blank" rel="noopener">
+    <img src="photo/severine.png" alt="severine">
+    <div class="contact-name">severine</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243896703056" target="_blank" rel="noopener">
+    <img src="photo/Mevane.png" alt="Mevane">
+    <div class="contact-name">Mevane</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243978047865" target="_blank" rel="noopener">
+    <img src="photo/logo off6.png" alt="Zoro">
+    <div class="contact-name">Off6_La_Production</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243820881777" target="_blank" rel="noopener">
+    <img src="photo/Jos.png" alt="Jos Kaz">
+    <div class="contact-name">Jos Kaz</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243813480667" target="_blank" rel="noopener">
+    <img src="photo/Rach.png" alt="Rach">
+    <div class="contact-name">Rach</div>
+  </a>
+</div>
+<div class="contact-card">
+  <a href="https://wa.me/243977916750" target="_blank" rel="noopener">
+    <img src="photo/Hadassah.png" alt="Zoro">
+    <div class="contact-name">Hadassah</div>
+  </a>
+</div>
+<div class="contact-card">
+  <a href="https://wa.me/243980530141" target="_blank" rel="noopener">
+    <img src="photo/Logo Omni flow.png" alt="Zoro">
+    <div class="contact-name">Omni_Flow</div>
+  </a>
+</div>
+
+     
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Soirée Masquée | Design by Zektronix_Lab</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

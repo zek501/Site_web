@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" accept="image/*" class="file-input" style="display:none" />
+        <div class="overlay">✎ Modifier</div>
+      </label>
+      <div class="caption">
+        <div class="name" contenteditable="true" aria-label="Nom">Nom Prénom</div>
+        <button class="small-btn removeBtn" title="Supprimer la case">🗑️</button>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    (function(){
+      const grid = document.getElementById('grid');
+      const tpl = document.getElementById('cardTpl').content;
+      const STORAGE_KEY = 'galerie_photos_demo_v1';
+
+      // default count: 25
+      let cardsData = loadFromStorage() || createDefaultData(25);
+
+      // Render initial
+      renderAll();
+
+      // controls
+      document.getElementById('addCard').addEventListener('click', () => {
+        cardsData.push({name: 'Nom Prénom', image: null});
+        renderAll();
+        saveToStorage();
+        // scroll to bottom to show new card
+        setTimeout(()=> window.scrollTo({ top: document.body.scrollHeight, behavior:'smooth' }), 100);
+      });
+
+      document.getElementById('resetAll').addEventListener('click', () => {
+        if(!confirm('Réinitialiser toutes les images et noms ?')) return;
+        cardsData = createDefaultData(25);
+        renderAll();
+        saveToStorage();
+      });
+
+      function createDefaultData(n){
+        const arr = [];
+        for(let i=1;i<=n;i++){
+          arr.push({ name: Personne ${i}, image: null }); // image: dataURL or null
+        }
+        return arr;
+      }
+
+      function renderAll(){
+        grid.innerHTML = '';
+        cardsData.forEach((data, idx) => {
+          const node = document.importNode(tpl, true);
+          const card = node.querySelector('.card');
+          const label = node.querySelector('.img-wrap');
+          const fileInput = node.querySelector('.file-input');
+          const placeholder = node.querySelector('.img-placeholder');
+          const nameEl = node.querySelector('.name');
+          const removeBtn = node.querySelector('.removeBtn');
+
+          // set name
+          nameEl.innerText = data.name || '';
+          nameEl.addEventListener('input', () => {
+            data.name = nameEl.innerText.trim() || '—';
+            saveToStorage();
+          });
+
+          // show image if exists
+          if(data.image){
+            const img = document.createElement('img');
+            img.src = data.image;
+            label.prepend(img);
+            placeholder.style.display = 'none';
+          }
+
+          // click label to trigger file input
+          label.addEventListener('click', () => fileInput.click());
+          label.addEventListener('keypress', (e) => { if(e.key==='Enter' || e.key===' ') fileInput.click(); });
+
+          // file chosen
+          fileInput.addEventListener('change', (ev) => {
+            const f = ev.target.files && ev.target.files[0];
+            if(!f) return;
+            if(!f.type.startsWith('image/')) { alert('Choisis une image.'); return; }
+
+            const reader = new FileReader();
+            reader.onload = () => {
+              data.image = reader.result; // dataURL
+              // replace placeholder with image
+              const existingImg = label.querySelector('img');
+              if(existingImg) existingImg.src = data.image;
+              else {
+                const img = document.createElement('img');
+                img.src = data.image;
+                label.prepend(img);
+                placeholder.style.display = 'none';
+              }
+              saveToStorage();
+            };
+            reader.readAsDataURL(f);
+          });
+
+          // remove card
+          removeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if(!confirm('Supprimer cette case ?')) return;
+            cardsData.splice(idx,1);
+            renderAll();
+            saveToStorage();
+          });
+
+          // append card
+          grid.appendChild(node);
+        });
+      }
+
+      // persistence in localStorage (keeps images as base64 data URLs — small galleries are fine)
+      function saveToStorage(){
+        try{
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(cardsData));
+        }catch(e){
+          console.warn('Impossible de sauvegarder localement:', e);
+        }
+      }
+      function loadFromStorage(){
+        try{
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if(!raw) return null;
+          return JSON.parse(raw);
+        }catch(e){
+          console.warn('Erreur lecture storage', e);
+          return null;
+        }
+      }
+
+      // save when leaving page
+      window.addEventListener('beforeunload', saveToStorage);
+    })();
+  </script>
+</body>
+</html>
+
+
+
+ <!-- Mode de paiement -->
+    <select name="paiement" required>
+      <option value="">Choisissez un moyen de Reservation</option>
+      <option value="M-Pesa">M-Pesa</option>
+      <option value="Airtel Money">Airtel Money</option>
+      <option value="Orange Money">Orange Money</option>
+      <option value="Cash">Cash (Paiement à la livraison)</option>
